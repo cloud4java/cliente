@@ -17,6 +17,6 @@ public class Health {
 
     @GetMapping()
     public String findAll(){
-        return "Novo Pipeline - 3";
+        return "Novo Pipeline - V4";
     }
 }
