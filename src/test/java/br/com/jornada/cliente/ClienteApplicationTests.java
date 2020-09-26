@@ -31,7 +31,7 @@ class ClienteApplicationTests {
 				.then()
 				.statusCode(HttpStatus.SC_OK)
 				.and()
-				.body(containsString("cliente-V8"));
+				.body(containsString("cliente-V9"));
 	}
 
 }
