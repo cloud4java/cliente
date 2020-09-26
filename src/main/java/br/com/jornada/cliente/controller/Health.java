@@ -8,7 +8,6 @@ public class Health {
 
     @GetMapping()
     public String findAll(){
-        return "Serviço de cliente-V6";
-		//return "forward: index.html";
+        return "Serviço de cliente-V7";
     }
 }
