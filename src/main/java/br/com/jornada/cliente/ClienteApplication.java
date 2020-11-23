@@ -16,7 +16,6 @@ public class ClienteApplication {
 
 	@Bean
 	public CommandLineRunner loadData(ClienteRepository repository){
-
 		return (args -> {
 			repository.save(new Cliente(1L, "Dorival", 47));
 			repository.save(new Cliente(2L, "Tom Hanks", 52));
