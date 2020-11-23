@@ -12,7 +12,6 @@ import org.springframework.boot.web.server.LocalServerPort;
 import io.restassured.RestAssured;
 
 
-//@SpringBootTest
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT )
 class ClienteApplicationTests {
 	
