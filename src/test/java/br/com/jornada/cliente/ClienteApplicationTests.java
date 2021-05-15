@@ -25,6 +25,8 @@ class ClienteApplicationTests {
 
 	@Test
 	public void confereVersaoTest(){
+		System.out.println("Base URI" + RestAssured.baseURI);
+		System.out.println("Base PATH" + RestAssured.basePath);
 		given()
 				.get("http://localhost:5000/")
 				.then()
