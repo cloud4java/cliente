@@ -8,6 +8,6 @@ public class Health {
 
     @GetMapping()
     public String findAll(){
-        return "Serviço de cliente-V13";
+        return "Serviço de cliente-V1";
     }
 }
