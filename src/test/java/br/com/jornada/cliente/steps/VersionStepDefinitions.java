@@ -4,42 +4,54 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import io.restassured.RestAssured;
-import io.restassured.response.Response;
+import io.cucumber.java.Before;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertEquals;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@io.cucumber.spring.CucumberContextConfiguration
+@SpringBootTest(
+    classes = br.com.jornada.cliente.ClienteApplication.class,
+    webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT
+)
 public class VersionStepDefinitions {
 
     @LocalServerPort
     private int port;
 
-    private Response response;
+    @Autowired
+    private TestContext testContext;
+
+    @Before
+    public void setup() {
+        testContext.reset();
+    }
 
     @Given("the API is running")
     public void the_api_is_running() {
         RestAssured.baseURI = "http://localhost:" + port;
-        // We can add a check here to ensure the API is responsive if needed
-        // For now, we assume it's running as part of the SpringBootTest context
-        System.out.println("API is assumed to be running at: " + RestAssured.baseURI);
     }
 
     @When("I make a GET request to {string}")
     public void i_make_a_get_request_to(String path) {
-        response = given().get(path);
+        Response response = given()
+            .when()
+            .get(path);
+        testContext.setResponse(response);
     }
 
     @Then("the response status code should be {int}")
-    public void the_response_status_code_should_be(Integer statusCode) {
-        assertEquals(statusCode.intValue(), response.getStatusCode());
+    public void the_response_status_code_should_be(Integer expectedStatusCode) {
+        assertEquals(expectedStatusCode.intValue(), testContext.getResponse().getStatusCode());
     }
 
     @Then("the response body should contain {string}")
-    public void the_response_body_should_contain(String content) {
-        response.then().body(containsString(content));
+    public void the_response_body_should_contain(String expectedContent) {
+        testContext.getResponse().then().body(containsString(expectedContent));
     }
 }
