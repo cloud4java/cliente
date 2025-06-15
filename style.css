@@ -1,0 +1,97 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #282c34; /* Darker background for a modern feel */
+  margin: 0;
+  color: #ffffff; /* Default text color for the body */
+}
+
+.video-player-container {
+  background-color: #1f2328; /* Slightly lighter dark shade for the container */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  width: 380px; /* Slightly wider for better spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#youtube-video-placeholder {
+  width: 100%;
+  height: 675px; /* Adjusted for a 9:16 aspect ratio with 380px width */
+  background-color: #000000;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #555;
+  font-size: 18px;
+  text-align: center;
+}
+
+#youtube-video-placeholder::before {
+  content: "Video Player"; /* Placeholder text */
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between; /* Better spacing for buttons */
+  align-items: center;
+  width: 100%; /* Make controls take full width of container */
+}
+
+.controls button {
+  background-color: #61dafb; /* A bright accent color (React blue) */
+  border: none;
+  color: #1f2328; /* Dark text on light buttons */
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  margin: 0 5px; /* Add some margin between buttons */
+}
+
+.controls button:hover {
+  background-color: #52c5e8; /* Slightly darker on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.controls button:active {
+  transform: translateY(0px); /* Button press effect */
+  background-color: #4aa8c7;
+}
+
+/* Specific styling if needed, e.g., for play/pause having different look */
+#play-button {
+  background-color: #5cb85c; /* Green for play */
+  color: white;
+}
+#play-button:hover {
+  background-color: #4cae4c;
+}
+
+#pause-button {
+  background-color: #f0ad4e; /* Orange for pause */
+  color: white;
+}
+#pause-button:hover {
+  background-color: #ec971f;
+}
+
+#prev-button, #next-button {
+  background-color: #337ab7; /* Blue for navigation */
+  color: white;
+}
+#prev-button:hover, #next-button:hover {
+  background-color: #286090;
+}

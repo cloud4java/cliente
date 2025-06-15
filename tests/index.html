@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short Video Player Tests</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        #test-results { margin-top: 20px; border-top: 1px solid #ccc; padding-top: 10px; }
+        .log-message { margin-bottom: 5px; padding: 5px; border-left: 3px solid; }
+        .log-info { border-left-color: #2196F3; background-color: #e3f2fd; }
+        .log-success { border-left-color: #4CAF50; background-color: #e8f5e9; }
+        .log-warn { border-left-color: #FFC107; background-color: #fff8e1; }
+        .log-error { border-left-color: #F44336; background-color: #ffebee; }
+        iframe { width: 400px; height: 750px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Short Video Player Test Suite</h1>
+    <p>Open the browser console to see detailed test logs and assertions.</p>
+
+    <iframe src="../index.html" id="player-iframe"></iframe>
+
+    <div id="test-results">
+        <h2>Test Results:</h2>
+        <!-- Test results will be logged here by test.js -->
+    </div>
+
+    <script src="test.js"></script>
+</body>
+</html>
