@@ -7,6 +7,7 @@ function onYouTubeIframeAPIReady() {
 
 // Video IDs for the playlist (Updated with actual YouTube video IDs)
 const videoPlaylist = [
+  'U9C6QJuPIZQ', // New starting video
   'dQw4w9WgXcQ', // Rick Astley - Never Gonna Give You Up
   'QH2-TGUlwu4', // Never Gonna Give You Up (Pianoforte)
   'uKxyLmbOc0Q', // Windows XP Startup Sound
